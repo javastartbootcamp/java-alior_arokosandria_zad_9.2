@@ -30,21 +30,17 @@ public class Date {
 
     public static ZonedDateTime returnDate(String date) {
         DateTimeFormatter dateFormatter;
-        ZonedDateTime localDateTime;
         if (dateFormat(date)) {
             dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-            localDateTime = LocalDateTime.parse(date, dateFormatter).atZone(ZoneId.systemDefault());
         } else if (dateFormatSecond(date)) {
             dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-            localDateTime = LocalDateTime.parse(date + " 00:00", dateFormatter).atZone(ZoneId.systemDefault());
+            date = date + " 00:00";
         } else if (dateFormatThird(date)) {
             dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
-            localDateTime = LocalDateTime.parse(date, dateFormatter).atZone(ZoneId.systemDefault());
-
         } else {
             throw new DateTimeException(date);
         }
-        return localDateTime;
+        return LocalDateTime.parse(date, dateFormatter).atZone(ZoneId.systemDefault());
     }
 
     public static String formatCorrectTime(ZonedDateTime zonedDateTime) {
