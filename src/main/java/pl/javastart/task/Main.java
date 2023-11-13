@@ -1,5 +1,6 @@
 package pl.javastart.task;
 
+import java.time.*;
 import java.util.Scanner;
 
 public class Main {
@@ -10,7 +11,15 @@ public class Main {
     }
 
     public void run(Scanner scanner) {
-        // uzupełnij rozwiązanie. Korzystaj z przekazanego w parametrze scannera
+        System.out.println("Podaj datę:");
+        String date = scanner.nextLine();
+        ZonedDateTime localDateTimeWithZone = DateSolution.returnDate(date);
+        System.out.println("Czas lokalny: " + DateSolution.formatCorrectTime(localDateTimeWithZone));
+        System.out.println("UTC: " + DateSolution.formatCorrectTime(localDateTimeWithZone.withZoneSameInstant(ZoneId.of("UTC"))));
+        System.out.println("Londyn: " + DateSolution.formatCorrectTime(localDateTimeWithZone.withZoneSameInstant(ZoneId.of("Europe/London"))));
+        System.out.println("Los Angeles: " + DateSolution.formatCorrectTime(localDateTimeWithZone.withZoneSameInstant(ZoneId.of("America/Los_Angeles"))));
+        System.out.println("Sydney: " + DateSolution.formatCorrectTime(localDateTimeWithZone.withZoneSameInstant(ZoneId.of("Australia/Sydney"))));
     }
-
 }
+
+
