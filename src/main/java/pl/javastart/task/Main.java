@@ -13,12 +13,12 @@ public class Main {
     public void run(Scanner scanner) {
         System.out.println("Podaj datę:");
         String date = scanner.nextLine();
-        ZonedDateTime localDateTimeWithZone = Date.returnDate(date);
-        System.out.println("Czas lokalny: " + Date.formatCorrectTime(localDateTimeWithZone));
-        System.out.println("UTC: " + Date.formatCorrectTime(localDateTimeWithZone.withZoneSameInstant(ZoneId.of("UTC"))));
-        System.out.println("Londyn: " + Date.formatCorrectTime(localDateTimeWithZone.withZoneSameInstant(ZoneId.of("Europe/London"))));
-        System.out.println("Los Angeles: " + Date.formatCorrectTime(localDateTimeWithZone.withZoneSameInstant(ZoneId.of("America/Los_Angeles"))));
-        System.out.println("Sydney: " + Date.formatCorrectTime(localDateTimeWithZone.withZoneSameInstant(ZoneId.of("Australia/Sydney"))));
+        ZonedDateTime localDateTimeWithZone = DateSolution.returnDate(date);
+        System.out.println("Czas lokalny: " + DateSolution.formatCorrectTime(localDateTimeWithZone));
+        System.out.println("UTC: " + DateSolution.formatCorrectTime(localDateTimeWithZone.withZoneSameInstant(ZoneId.of("UTC"))));
+        System.out.println("Londyn: " + DateSolution.formatCorrectTime(localDateTimeWithZone.withZoneSameInstant(ZoneId.of("Europe/London"))));
+        System.out.println("Los Angeles: " + DateSolution.formatCorrectTime(localDateTimeWithZone.withZoneSameInstant(ZoneId.of("America/Los_Angeles"))));
+        System.out.println("Sydney: " + DateSolution.formatCorrectTime(localDateTimeWithZone.withZoneSameInstant(ZoneId.of("Australia/Sydney"))));
     }
 }
 

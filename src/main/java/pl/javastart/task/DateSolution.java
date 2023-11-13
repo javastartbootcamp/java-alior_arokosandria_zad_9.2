@@ -6,7 +6,7 @@ import java.time.format.DateTimeParseException;
 import java.util.List;
 
 
-public class Date {
+public class DateSolution {
     static final List<String> FORMATTER_WITH_TIME = List.of("yyyy-MM-dd HH:mm:ss", "dd.MM.yyyy HH:mm:ss");
     static final List<String> FORMATTER_WITHOUT_TIME = List.of("yyyy-MM-dd");
 
